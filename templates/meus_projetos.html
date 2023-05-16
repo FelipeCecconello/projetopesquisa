@@ -1,0 +1,17 @@
+<!-- meus_projetos.html -->
+
+{% block content %}
+  <h1>Meus Projetos</h1>
+  
+  {% if projetos %}
+    <ul>
+      {% for projeto in projetos %}
+        <li>
+          <a href="{% url 'pagina_projeto' projeto.id %}">{{ projeto.titulo }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Nenhum projeto encontrado.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ projeto.nome }}</title>
+</head>
+<body>
+    <h1>{{ projeto.nome }}</h1>
+    <p>{{ projeto.descricao }}</p>
+    <p>Status:
+    {% if projeto.status == True %}
+        Aprovado </p>
+    {% else %}
+        Não Aprovado </p>
+    {% endif %}
+    
+    {% if atividades.count > 0 %}
+        <h2>Atividades</h2>
+        <ul>
+            {% for atividade in atividades.all %}
+                <li>{{ atividade.descricao }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhuma atividade encontrada.</p>
+    {% endif %}
+    
+    <a href="{% url 'adicionar_atividade' projeto.id %}">Adicionar Atividade</a>
+    
+    {% if relatorios.count > 0 %}
+        <h2>Relatórios</h2>
+        <ul>
+            {% for relatorio in relatorios.all %}
+                <li><a href="{% url 'download_relatorio' relatorio.id %}">{{ relatorio.titulo }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum relatório encontrado.</p>
+    {% endif %}
+    
+    <a href="{% url 'adicionar_relatorio' projeto.id %}">Adicionar relatório</a>
+</body>
+</html>

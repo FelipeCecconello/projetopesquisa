@@ -1,0 +1,14 @@
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="descricao">Descrição:</label>
+    <input type="text" name="descricao" required>
+    <br>
+    <label for="titulo">Título:</label>
+    <input type="text" name="titulo" required>
+    <br>
+    <label for="relatorio_pdf">Arquivo PDF do relatório:</label>
+    <input type="file" name="relatorio_pdf" required>
+    <br>
+    <input type="submit" value="Adicionar Relatório">
+  </form>
+  

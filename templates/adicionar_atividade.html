@@ -1,0 +1,7 @@
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="descricao">Descrição:</label>
+    <input type="text" name="descricao" required>
+    <br>
+    <input type="submit" value="Adicionar Atividade">
+  </form>
